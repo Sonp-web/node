@@ -1,6 +1,7 @@
 const { nanoid } = require("nanoid");
 const express = require("express");
 const app = express();
+require("dotenv").config();
 
 app.use(express.json());
 
@@ -41,7 +42,7 @@ app.delete("/api/users/:id", (req, res) => {
   res.send(users);
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log("ready on ", PORT);
 });
